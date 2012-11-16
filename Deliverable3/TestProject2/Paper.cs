@@ -7,17 +7,37 @@ namespace TestProject2
 {
     class Paper
     {
-        private string p;
+        //Paper class consists of a string
+        public string paperTitle;
 
-        public Paper(string p)
+        //List to view all keywords with that paper
+        private List<Keyword> k;
+
+        //Points to next paper in the Systematic Mapping System
+        public Paper next;
+
+        //Create a paper object, consists of a string.
+        public Paper(string paperTitle)
         {
-            // TODO: Complete member initialization
-            this.p = p;
+            this.paperTitle = paperTitle;
+            k = new List<Keyword>();
         }
 
-        internal void AddKeyword(Keyword expectedKeyword)
+        //Add a keyword to the paper
+       public void AddKeyword(Keyword newkeyword)
         {
-            throw new NotImplementedException();
+            k.Add(newkeyword);
+        }
+
+        public Keyword[] getKeywords()
+        {
+            Keyword[] array = k.ToArray();
+            return array;
+        }
+
+        public bool findKeyword()
+        {
+            return true;
         }
     }
 }
