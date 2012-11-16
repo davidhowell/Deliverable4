@@ -7,14 +7,25 @@ namespace TestProject2
 {
     class SystematicMappingSystem
     {
-        internal void AddPaper(Paper expectedPaper)
+        List<Paper> papers = new List<Paper>();
+
+        internal void AddPaper(TestProject2.Paper paper)
         {
-            throw new NotImplementedException();
+            papers.Add(paper);
         }
 
         internal List<Keyword> GetKeywordsFromPaper(string p)
         {
-            throw new NotImplementedException();
+            foreach (Paper paper in papers)
+            {
+                if (paper.paperTitle == p)
+                {
+                    return new List<Keyword>(paper.getKeywords());
+                }
+            }
+
+            // paper p does not exist.
+            throw new ArgumentException("paper " + p + " not found");
         }
     }
 }
