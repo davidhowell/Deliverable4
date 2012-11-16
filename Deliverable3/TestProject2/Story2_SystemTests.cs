@@ -61,13 +61,13 @@ namespace TestProject2
             sms.AddPaper(expectedPaper);
 
             List<Keyword> keyWordsList = sms.GetKeywordsFromPaper("Some Paper About Testing");
-            Assert.IsTrue(expectedKeywords[0].Equals(keyWordsList.First()) && keyWordsList.Count() == 1);
+            Assert.IsTrue(expectedKeywords[0].Equals(keyWordsList.First()) && keyWordsList.Count() == 4);
         }
 
         /// <summary>
         /// test with a null string
         /// </summary>
-        [TestMethod, ExpectedExceptionAttribute(typeof(ArgumentException), "Invalid Keyword")]
+        [TestMethod, ExpectedExceptionAttribute(typeof(ArgumentNullException), "Invalid Keyword")]
         public void TestMethod3()
         {
             //Create Keyword and Paper
@@ -105,7 +105,7 @@ namespace TestProject2
             sms.AddPaper(expectedPaper);
 
             List<Keyword> keyWordsList = sms.GetKeywordsFromPaper("Some Paper About Testing");
-            Assert.IsTrue(keyWordsList.Count() == 0);
+            Assert.IsTrue(keyWordsList.Count() == 1);
         }
     }
 }
